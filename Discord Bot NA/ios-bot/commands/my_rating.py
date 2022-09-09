@@ -1,6 +1,5 @@
 import discord
-import pandas
-from Statistics.bot_logic import *
+from bot_logic import *
 from ..config import *
 
 intents = discord.Intents.default()
@@ -30,16 +29,16 @@ async def my_rating(ctx):
                 col = discord.Color.gold()
             if 76 <= dict1[userid][1] <= 83:
                 col = discord.Color.dark_gold()
-            if 70 <= dict1[userid][1] <= 75:
+            if 69 <= dict1[userid][1] <= 75:
                 col = discord.Color.light_grey()
-            if dict1[userid][1] <= 69:
+            if dict1[userid][1] <= 68:
                 col = discord.Color.dark_red()
 
-            embed=discord.Embed(title="IOS NA Ratings", url="https://docs.google.com/spreadsheets/d/1awIL1ZtuLw_xFu3-jsv8qlKT8PXCggEYsRdOF9v26b0/edit", description="\n **------------------------** \n", color=col)
+            embed=discord.Embed(title="IOS NA Ratings", url="https://docs.google.com/spreadsheets/d/11F0008W7lM07f_0byxyvFVHtGNJ3Y5Q0uDMDLxUtAow/edit?usp=sharing", description="\n **------------------------** \n", color=col)
             embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url)
             embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
             embed.add_field(name="Player", value=dict1[userid][2], inline=True)
             embed.add_field(name="Position", value=dict1[userid][0], inline=True)
             embed.add_field(name="Rating", value=dict1[userid][1], inline=True)
             embed.set_footer(text="Requested by {}".format(ctx.author.name))
-            await ctx.respond(embed=embed,ephemeral=True)            
+            await ctx.respond(embed=embed)             

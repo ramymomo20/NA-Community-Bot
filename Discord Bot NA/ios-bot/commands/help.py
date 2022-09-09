@@ -35,4 +35,4 @@ async def help(ctx):
             icon_url=FOOTER_URL
         )
         await ctx.author.send(embed=help_embed)
-        await ctx.respond("DM has been sent!", ephemeral=True)
+        await ctx.respond(SENT_DM, ephemeral=True)

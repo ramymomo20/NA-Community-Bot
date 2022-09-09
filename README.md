@@ -17,7 +17,8 @@ Here's the list of commands:
 | `/ top_na`                    | View the top-10 best players with their rating and position.                                               |
 | `/ view_rating @member`       | View the rating of a given @member                                                                         |
 | `/ ratings(GK, DEF, MID, ATK)`| View the ratings by a specified position.                                                                  |
-|                                                                                                                                            |
-|                                                                                                                                            |
+| `/view_league_table`          | View the league table of any league IRL.                                                                   |
+| `/view_top_scorers`           | View the top scorers of any league IRL with each team.                                                     |
+| `/8_ball`                     | Ask the bot any question, and receive your fate...                                                         |
 | `/ clear [number]` *ADMIN*    | Deletes a specified number of previous messages from chat.                                                 |
-| `/ get_id @member` *ADMIN*    | Receives the ID of a user; in order to get ratings.                                                        |
+| `/ get_id @member` *ADMIN*    | Receives the unique 18 digit ID of a user.                                                                 |

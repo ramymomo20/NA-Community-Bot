@@ -5,3 +5,6 @@ from .ratings import ratings
 from .top_na import top_na
 from .view_rating import view_rating
 from .get_id import get_id
+from .t8ball import the8ball
+from .view_league_table import league_table
+from .view_top_scorers import top_scorers

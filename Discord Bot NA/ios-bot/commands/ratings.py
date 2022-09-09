@@ -1,6 +1,5 @@
 import discord
-import pandas
-from Statistics.bot_logic import *
+from bot_logic import *
 from discord import Option
 from ..config import *
 
@@ -27,7 +26,7 @@ async def ratings(ctx, position: Option(str, "Enter a Position (GK, DEF, MID, AT
 
 
         if position == 'GK' or position == 'gk':
-            embed=discord.Embed(title="Current Goalkeeper Ratings", url="https://docs.google.com/spreadsheets/d/1awIL1ZtuLw_xFu3-jsv8qlKT8PXCggEYsRdOF9v26b0/edit", description="\n **------------------------------------------** \n", color=discord.Color.random())
+            embed=discord.Embed(title="Current Goalkeeper Ratings", url="https://docs.google.com/spreadsheets/d/11F0008W7lM07f_0byxyvFVHtGNJ3Y5Q0uDMDLxUtAow/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
             embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
             embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
             embed.add_field(name="Players ", value='\n'.join(map(str, gk_names)), inline=True)
@@ -36,7 +35,7 @@ async def ratings(ctx, position: Option(str, "Enter a Position (GK, DEF, MID, AT
             await ctx.respond(embed=embed,ephemeral=True)
 
         elif position == 'DEF' or position == 'def':
-            embed=discord.Embed(title="Current Defender Ratings", url="https://docs.google.com/spreadsheets/d/1awIL1ZtuLw_xFu3-jsv8qlKT8PXCggEYsRdOF9v26b0/edit", description="\n **------------------------------------------** \n", color=discord.Color.random())
+            embed=discord.Embed(title="Current Defender Ratings", url="https://docs.google.com/spreadsheets/d/11F0008W7lM07f_0byxyvFVHtGNJ3Y5Q0uDMDLxUtAow/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
             embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
             embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
             embed.add_field(name="Players ", value='\n'.join(map(str, def_names)), inline=True)
@@ -45,7 +44,7 @@ async def ratings(ctx, position: Option(str, "Enter a Position (GK, DEF, MID, AT
             await ctx.respond(embed=embed,ephemeral=True)
         
         elif position == 'MID' or position == 'mid':
-            embed=discord.Embed(title="Current Midfielder Ratings", url="https://docs.google.com/spreadsheets/d/1awIL1ZtuLw_xFu3-jsv8qlKT8PXCggEYsRdOF9v26b0/edit", description="\n **------------------------------------------** \n", color=discord.Color.random())
+            embed=discord.Embed(title="Current Midfielder Ratings", url="https://docs.google.com/spreadsheets/d/11F0008W7lM07f_0byxyvFVHtGNJ3Y5Q0uDMDLxUtAow/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
             embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
             embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
             embed.add_field(name="Players ", value='\n'.join(map(str, mid_names)), inline=True)
@@ -54,7 +53,7 @@ async def ratings(ctx, position: Option(str, "Enter a Position (GK, DEF, MID, AT
             await ctx.respond(embed=embed,ephemeral=True)
 
         elif position == 'ATK' or position == 'atk':
-            embed=discord.Embed(title="Current Attacker Ratings", url="https://docs.google.com/spreadsheets/d/1awIL1ZtuLw_xFu3-jsv8qlKT8PXCggEYsRdOF9v26b0/edit", description="\n **------------------------------------------** \n", color=discord.Color.random())
+            embed=discord.Embed(title="Current Attacker Ratings", url="https://docs.google.com/spreadsheets/d/11F0008W7lM07f_0byxyvFVHtGNJ3Y5Q0uDMDLxUtAow/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
             embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
             embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
             embed.add_field(name="Players ", value='\n'.join(map(str, attack_names)), inline=True)
