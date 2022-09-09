@@ -4,9 +4,6 @@ intents = discord.Intents.default()
 intents.members = True
 bot = discord.Bot(intents=intents)
 
-
-token = "MTAwNjcwNzI1NTIxMjc3NzU0Mg.GNBF6y.5g1t2tOh2MwkbCV8Kr5wez3HS8TvgmYZzaVpgw"
-
 TITLE = "🤖 `NA Community Bot`"
 DESCRIPTION = "I manage IOSNA community and I work the ratings system."
 HOW_TO_USE = "🤔 How to use me?"
