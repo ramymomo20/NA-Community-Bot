@@ -1,4 +1,4 @@
-import discord, asyncio
+import discord
 from soccer_logic import *
 from ..config import bot
 import collections

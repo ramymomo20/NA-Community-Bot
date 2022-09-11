@@ -8,3 +8,4 @@ from .get_id import get_id
 from .t8ball import the8ball
 from .view_league_table import league_table
 from .view_top_scorers import top_scorers
+from .view_tournament import tournament

@@ -28,6 +28,7 @@ COMMANDS_MESSAGE += f"**4**. `/ratings (GK, DEF, MID, ATK)` to view the ratings 
 COMMANDS_MESSAGE += f"**5**. `/8_ball [question]`, ask the bot any question and you shall receive an answer.\n"
 COMMANDS_MESSAGE += f"**6**. `/view_top_leagues`, get the league table of any league you like.\n"
 COMMANDS_MESSAGE += f"**7**. `/view_top_scorers`, get the top scorer of each team of any league.\n"
+COMMANDS_MESSAGE += f"**8**. `/view_tournament`, view the history of each year in a tournament.\n"
 COMMANDS_MESSAGE += f""
 COMMANDS_MESSAGE += "\u200b"
 
