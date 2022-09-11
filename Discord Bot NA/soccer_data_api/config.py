@@ -13,3 +13,9 @@ CONF = {
         "super_lig": "comps/26/Super-Lig-Stats",
     },
 }
+
+WC = {'url': "https://fbref.com/en/", "wc": {'data': "comps/1/history/World-Cup-Seasons"},}
+
+UCL = {'url': 'https://fbref.com/en/', "cl": {'data': "comps/8/history/UEFA-Champions-League-Seasons"}}
+
+EURO = {'url': 'https://fbref.com/en/', "euro": {'data': "comps/19/history/UEFA-Europa-League-Seasons"}}

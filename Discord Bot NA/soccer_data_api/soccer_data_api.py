@@ -1,6 +1,6 @@
-from soccer_data_api.config import CONF
-from soccer_data_api.response_types import json_response
-from soccer_data_api.get_soccer_data import GetData
+from soccer_data_api.config import CONF, EURO, UCL, WC
+from soccer_data_api.response_types import json_response, int_json_response, cl_json_response, euro_json_response
+from soccer_data_api.get_soccer_data import GetData, GetWCData, GetUCLData, GetEUROData
 
 
 class SoccerDataAPI:
@@ -14,6 +14,25 @@ class SoccerDataAPI:
     """
     def __init__(self):
         self.get_data = None
+
+    def world_cup(self):
+        self.get_data = GetWCData(WC['wc']['data'])
+        response = int_json_response(self.get_data.get_year(),
+                                     self.get_data.get_country(), self.get_data.get_champion(),
+                                     self.get_data.get_second(), self.get_data.get_top_scorer())
+        return response
+
+    def champions_league(self):
+        self.get_data = GetUCLData(UCL['cl']['data'])
+        response = cl_json_response(self.get_data.get_year(),self.get_data.get_champion(),
+                                     self.get_data.get_second(), self.get_data.get_top_scorer())
+        return response     
+
+    def europa_league(self):
+        self.get_data = GetEUROData(EURO['euro']['data'])
+        response = euro_json_response(self.get_data.get_year(),self.get_data.get_champion(),
+                                     self.get_data.get_second(), self.get_data.get_top_scorer())
+        return response   
 
     def english_premier(self):
         self.get_data = GetData(CONF['leagues']['english_premier_league'])

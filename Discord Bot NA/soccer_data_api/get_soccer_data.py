@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-from soccer_data_api.config import CONF
+from soccer_data_api.config import CONF, EURO, WC
 from time import sleep
 
 
@@ -37,6 +37,7 @@ class GetData:
 
     get_top_scorer: Gets the name of the team's top scorer.
     """
+    #*******************************************************************************************************
     def __init__(self, league):
         page = requests.get(CONF['url']+league)
         self.soup = BeautifulSoup(page.content, features="html.parser")
@@ -219,3 +220,147 @@ class GetData:
             return self.top_scorer[-16:]
 
         return self.top_scorer[-20:]
+
+#*******************************************************************************************************
+class GetWCData:
+    def __init__(self, wc):
+        page = requests.get(WC['url']+wc)
+        self.soup = BeautifulSoup(page.content, features="html.parser")
+        self.league = ""
+        self.array = []
+        self.year = []
+        self.host = []
+        self.champion = []
+        self.second = []
+        self.top_scorer = []
+        self.league = wc
+
+    def get_year(self):
+        raw_response = self.soup.find_all('th', {'data-stat': 'year'})
+        for years in raw_response:
+            self.array.append(years.get_text())
+        self.year += self.array
+
+        return self.year[-22:]
+
+    def get_country(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'host_country'})
+        for hosts in raw_response:
+            self.array.append(hosts.get_text()[:])
+        self.host += self.array
+
+        return self.host[-22:]
+
+    def get_champion(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'champ'})
+        for champions in raw_response:
+            self.array.append(champions.get_text()[3:])
+        self.champion += self.array
+
+        return self.champion[-22:]
+
+    def get_second(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'runner_up'})
+        for seconds in raw_response:
+            self.array.append(seconds.get_text()[3:])
+        self.second += self.array
+
+        return self.second[-22:]
+
+    def get_top_scorer(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'top_scorers'})
+        for topscorer in raw_response:
+            self.array.append(topscorer.get_text())
+        self.top_scorer += self.array
+
+        return self.top_scorer[-22:]
+
+#*******************************************************************************************************
+class GetUCLData:
+    def __init__(self, cl):
+        page = requests.get(WC['url']+cl)
+        self.soup = BeautifulSoup(page.content, features="html.parser")
+        self.league = ""
+        self.array = []
+        self.year = []
+        self.champion = []
+        self.second = []
+        self.top_scorer = []
+        self.league = cl
+
+    def get_year(self):
+        raw_response = self.soup.find_all('th', {'data-stat': 'year_id'})
+        for years in raw_response:
+            self.array.append(years.get_text())
+        self.year += self.array
+
+        return self.year[-32:]
+
+    def get_champion(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'champ'})
+        for champions in raw_response:
+            self.array.append(champions.get_text()[3:])
+        self.champion += self.array
+
+        return self.champion[-32:]
+
+    def get_second(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'runner_up'})
+        for seconds in raw_response:
+            self.array.append(seconds.get_text()[3:])
+        self.second += self.array
+
+        return self.second[-32:]
+
+    def get_top_scorer(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'top_scorers'})
+        for topscorer in raw_response:
+            self.array.append(topscorer.get_text())
+        self.top_scorer += self.array
+
+        return self.top_scorer[-32:]
+
+#*******************************************************************************************************
+class GetEUROData:
+    def __init__(self, euro):
+        page = requests.get(EURO['url']+euro)
+        self.soup = BeautifulSoup(page.content, features="html.parser")
+        self.league = ""
+        self.array = []
+        self.year = []
+        self.champion = []
+        self.second = []
+        self.top_scorer = []
+        self.league = euro
+
+    def get_year(self):
+        raw_response = self.soup.find_all('th', {'data-stat': 'year_id'})
+        for years in raw_response:
+            self.array.append(years.get_text())
+        self.year += self.array
+
+        return self.year[-32:]
+
+    def get_champion(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'champ'})
+        for champions in raw_response:
+            self.array.append(champions.get_text()[3:])
+        self.champion += self.array
+
+        return self.champion[-32:]
+
+    def get_second(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'runner_up'})
+        for seconds in raw_response:
+            self.array.append(seconds.get_text()[3:])
+        self.second += self.array
+
+        return self.second[-32:]
+
+    def get_top_scorer(self):
+        raw_response = self.soup.find_all('td', {'data-stat': 'top_scorers'})
+        for topscorer in raw_response:
+            self.array.append(topscorer.get_text())
+        self.top_scorer += self.array
+
+        return self.top_scorer[-32:]

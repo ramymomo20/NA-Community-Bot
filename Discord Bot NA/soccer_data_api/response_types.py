@@ -22,3 +22,49 @@ def json_response(team, pos, points, matches_played, wins, draws, losses, goals_
     json_list = json.loads(json_str.decode())
 
     return json_list
+
+def int_json_response(year, host, champion, second, top_scorer):
+    raw_response = []
+    for i in range(0, len(year)):
+        raw_response.append({
+            "year": year[i],
+            "host": host[i],
+            "champion": champion[i],
+            "second": second[i],
+            "top_scorer": top_scorer[i]
+        })
+
+    json_str = json.dumps(raw_response, ensure_ascii=False).encode('utf-8')
+    json_list = json.loads(json_str.decode())
+
+    return json_list
+
+def cl_json_response(season, champion, second, top_scorer):
+    raw_response = []
+    for i in range(0, len(season)):
+        raw_response.append({
+            "season": season[i],
+            "champion": champion[i],
+            "second": second[i],
+            "top_scorer": top_scorer[i]
+        })
+
+    json_str = json.dumps(raw_response, ensure_ascii=False).encode('utf-8')
+    json_list = json.loads(json_str.decode())
+
+    return json_list
+
+def euro_json_response(season, champion, second, top_scorer):
+    raw_response = []
+    for i in range(0, len(season)):
+        raw_response.append({
+            "season": season[i],
+            "champion": champion[i],
+            "second": second[i],
+            "top_scorer": top_scorer[i]
+        })
+
+    json_str = json.dumps(raw_response, ensure_ascii=False).encode('utf-8')
+    json_list = json.loads(json_str.decode())
+
+    return json_list
