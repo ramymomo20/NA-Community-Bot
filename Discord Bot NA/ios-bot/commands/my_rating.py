@@ -47,7 +47,7 @@ async def my_rating(ctx):
             if dict1[userid][1] <= 68:
                 col = discord.Color.dark_red()
 
-            embed=discord.Embed(title="IOS NA Ratings", url="https://docs.google.com/spreadsheets/d/11F0008W7lM07f_0byxyvFVHtGNJ3Y5Q0uDMDLxUtAow/edit?usp=sharing", description="\n **------------------------** \n", color=col)
+            embed=discord.Embed(title="IOS NA Ratings", url="https://docs.google.com/spreadsheets/d/1ZUWs-zHYjIpJvVPSTofodg8FF29_zP28Mmk5j9ZtynU/edit?usp=sharing", description="\n **------------------------** \n", color=col)
             embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url)
             embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
             embed.add_field(name="Player", value=dict1[userid][2], inline=True)
