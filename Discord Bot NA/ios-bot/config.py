@@ -10,7 +10,6 @@ bot = discord.Bot(intents=intents)
 
 link = 'https://docs.google.com/spreadsheets/d/1BP-nsM2rS200hLALOrOyGZv2IFkAMLzPAGB-NojbRtA/edit?usp=sharing'
 
-token = "MTAwNjcwNzI1NTIxMjc3NzU0Mg.Gk5S_U.8Ph1MvMiqAoe5yMFyw8pWwG8OlA5xtTDddekpY"
 
 TITLE = "🤖 `NA Community Bot`"
 DESCRIPTION = "I manage the IOSNA community and I work the ratings system."
