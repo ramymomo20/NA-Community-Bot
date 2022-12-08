@@ -1,8 +1,4 @@
-import discord
-from discord.ext import commands
-from discord import Option
 from ..config import *
-import random
 
 @bot.slash_command(name = '8_ball',description="Ask the Bot for your Fate.")
 async def the8ball(ctx, question):
@@ -45,8 +41,8 @@ async def the8ball(ctx, question):
                  "You only speak facts.",
                  "You should be arrested for misinformation.",
                  "Nah, will not happen,"
-                 'Honestly, do not even bother.',
-                 'Get some help.',
+                 "Honestly, do not even bother.",
+                 "Get some help.",
                  'Nope.',
                  'Positive',
                  'From my point of view, yes',
@@ -57,9 +53,14 @@ async def the8ball(ctx, question):
                  'Nah, sorry.',
                  'Perhaps.',
                  'Probably.',
-                 'Maybe',
-                 'Im to lazy to predict.',
-                 'I am tired. *proceeds with sleeping*']
+                 "Maybe",
+                 "I'm to lazy to predict.",
+                 "I am tired. *proceeds with sleeping*",
+                 "Sure, why not.",
+                 "How can you even say that...",
+                 "Don't speak of this again.",
+                 "I couldn't think of anything dumber than that.",
+                 "You are a genius."]
 
     rep = random.choice(responses)
 
@@ -68,5 +69,5 @@ async def the8ball(ctx, question):
     embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
     embed.add_field(name='Your Question: ', value=f'{question}', inline=True)
     embed.add_field(name='The Bot Says: ',value=f'{rep}', inline=False)
-    embed.set_footer(text="Requested by {}".format(ctx.author.name))
+    embed.set_footer(text=f"Requested by {ctx.author.name}")
     await ctx.respond(embed=embed)
