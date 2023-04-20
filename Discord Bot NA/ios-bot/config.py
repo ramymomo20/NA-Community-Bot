@@ -33,6 +33,9 @@ COMMANDS_MESSAGE += f"**2**. `/view_rating @name` to view someone else's rating.
 COMMANDS_MESSAGE += f"**3**. `/top_na` to view the top 10 best players in NA.\n"
 COMMANDS_MESSAGE += f"**4**. `/ratings (GK, DEF, MID, ATK)` to view the ratings by position using the list of positions in the parentheses.\n"
 COMMANDS_MESSAGE += f"**5**. `/8_ball [question]`, ask the bot any question and you shall receive an answer.\n"
+COMMANDS_MESSAGE += f"**6**. `/view_league_table`, view the league table of the top leagues in Europe.\n"
+COMMANDS_MESSAGE += f"**5**. `/top_scorers`, view the top scorers of the top leagues.\n"
+COMMANDS_MESSAGE += f"**5**. `/view_tournament`, view tournaments like the World Cup, CL, and EL.\n"
 COMMANDS_MESSAGE += f""
 COMMANDS_MESSAGE += "\u200b"
 

@@ -19,6 +19,7 @@ Here's the list of commands:
 | `/ ratings(GK, DEF, MID, ATK)`| View the ratings by a specified position.                                                                  |
 | `/view_league_table`          | View the league table of any league IRL.                                                                   |
 | `/view_top_scorers`           | View the top scorers of any league IRL with each team.                                                     |
+| `/view_tournaments`           | View the winners of the World Cup, CL, and UL.                                                             |
 | `/8_ball`                     | Ask the bot any question, and receive your fate...                                                         |
 | `/ clear [number]` *ADMIN*    | Deletes a specified number of previous messages from chat.                                                 |
 | `/ get_id @member` *ADMIN*    | Receives the unique 18 digit ID of a user.                                                                 |
