@@ -4,101 +4,78 @@ from ..config import bot
 import collections
 collections.Callable = collections.abc.Callable
 
+LEAGUE_OPTIONS = {
+    "English Premier League": 1,
+    "La Liga": 2,
+    "Ligue 1": 3,
+    "Bundesliga": 4,
+    "Serie A": 5,
+    "Eredivisie": 6,
+    "Russian Premier League": 7,
+    "Primeira Liga": 8,
+    "Super Lig": 9,
+}
+
 class Select1(discord.ui.View):
-    @discord.ui.select(placeholder = "Select a league: ",min_values = 1,max_values = 1,options = [
+    @discord.ui.select(placeholder="Select a league: ", min_values=1, max_values=1, options=[
             discord.SelectOption(
                 label="English Premier League",
                 description="Pick this if you want the English League",
-                emoji = "🇬🇧"
+                emoji="🇬🇧",
             ),
             discord.SelectOption(
                 label="La Liga",
                 description="Pick this if you want the Spanish League!",
-                emoji = "🇪🇸"
+                emoji="🇪🇸",
             ),
             discord.SelectOption(
                 label="Ligue 1",
                 description="Pick this if you want the French League!",
-                emoji = "🇫🇷"
+                emoji="🇫🇷",
             ),
             discord.SelectOption(
                 label="Bundesliga",
                 description="Pick this if you want the German League!",
-                emoji = '🇩🇪'
+                emoji="🇩🇪",
             ),
             discord.SelectOption(
                 label="Serie A",
                 description="Pick this if you want the Italian League!",
-                emoji = '🇮🇹'
+                emoji="🇮🇹",
             ),
             discord.SelectOption(
                 label="Eredivisie",
                 description="Pick this if you want the Dutch League!",
-                emoji = "🇳🇱"
+                emoji="🇳🇱",
             ),
             discord.SelectOption(
                 label="Russian Premier League",
                 description="Pick this if you want the Russian League!",
-                emoji = "🇷🇺"
+                emoji="🇷🇺",
             ),
             discord.SelectOption(
                 label="Primeira Liga",
                 description="Pick this if you want the Portuguese League!",
-                emoji = "🇵🇹"
+                emoji="🇵🇹",
             ),
             discord.SelectOption(
                 label="Super Lig",
                 description="Pick this if you want the Turkish League!",
-                emoji = "🇹🇷"
-            )
-        ]
+                emoji="🇹🇷",
+            ),
+        ],
     )
     
     async def select_callback(self, select, interaction):
-        if select.values[0] == "English Premier League":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(1)),ephemeral=False)
-            
-        elif select.values[0] == "La Liga":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(2)),ephemeral=False)
+        select.disabled = True
+        await interaction.response.edit_message(view=self)
 
-        elif select.values[0] == "Ligue 1":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(3)),ephemeral=False)
+        # Get the league id using the league name
+        league_id = LEAGUE_OPTIONS.get(select.values[0])
 
-        elif select.values[0] == "Bundesliga":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(4)),ephemeral=False)
-
-        elif select.values[0] == "Serie A":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(5)),ephemeral=False)
-
-        elif select.values[0] == "Eredivisie":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(6)),ephemeral=False)
-
-        elif select.values[0] == "Russian Premier League":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(7)),ephemeral=False)
-
-        elif select.values[0] == "Primeira Liga":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(8)),ephemeral=False)
-
-        elif select.values[0] == "Super Lig":
-            select.disabled = True
-            await interaction.response.edit_message(view=self)
-            await interaction.followup.send("```{}```".format(Start.gettable(9)),ephemeral=False)
+        # If the league name is valid, send the league table
+        if league_id:
+            await interaction.followup.send(f"```{Getters.gettable(league_id)}```", ephemeral=False)
 
 @bot.slash_command(name = 'view_league_table',description="View the league tables")
 async def league_table(ctx):

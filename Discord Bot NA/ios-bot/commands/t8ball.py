@@ -53,7 +53,7 @@ async def the8ball(ctx, question):
                  'Nah, sorry.',
                  'Perhaps.',
                  'Probably.',
-                 "Maybe",
+                 "Maybe.",
                  "I'm to lazy to predict.",
                  "I am tired. *proceeds with sleeping*",
                  "Sure, why not.",
