@@ -163,4 +163,4 @@ class SoccerDataAPI:
                                  self.get_data.get_goals_for(), self.get_data.get_goals_against(),
                                  self.get_data.get_goal_diff(), self.get_data.get_top_scorer())
         
-        return response   
+        return response

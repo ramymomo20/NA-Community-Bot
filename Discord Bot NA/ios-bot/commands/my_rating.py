@@ -1,5 +1,5 @@
 from ..config import *
-from bot_logic import *
+from player_ratings.bot_logic import *
 
 @bot.slash_command(name = 'my_rating',description="View Your Rating")
 async def my_rating(ctx):

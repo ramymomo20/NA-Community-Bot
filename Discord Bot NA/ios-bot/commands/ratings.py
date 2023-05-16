@@ -1,5 +1,5 @@
 import discord
-from bot_logic import *
+from player_ratings.bot_logic import *
 from discord import Option
 from ..config import *
 

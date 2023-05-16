@@ -1,5 +1,5 @@
 from ..config import *
-from bot_logic import *
+from player_ratings.bot_logic import *
 
 @bot.slash_command(name = 'top_na',description="View the 10 Best Players in NA")
 async def top_na(ctx):
