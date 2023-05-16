@@ -15,7 +15,6 @@ DESCRIPTION = "I manage the IOSNA community and I work the ratings system."
 HOW_TO_USE = "🤔 How to use me?"
 COMMANDS = "⌨️ Available commands"
 ADD = "🤝 Copyright (c) 2023 **NA Community Bot**\n*THIS SOFTWARE IS PROVIDED WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.*" 
-ADD = "🤝 Copyright (c) 2023 **NA Community Bot**\n*THIS SOFTWARE IS PROVIDED WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.*" 
 FOOTER_TEXT = "If you require further assistance, directly message: @shaq#6096"
 FOOTER_URL = "https://imgur.com/ylgPvo4.jpeg"
 

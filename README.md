@@ -13,13 +13,16 @@ Here's the list of commands:
 | Command                       | Action                                                                                                     |
 | :---------------------------- | :--------------------------------------------------------------------------------------------------------- |
 | `/ help`                      | `ios-bot` will private message you a list of commands and their usage (i.e., basically everything in here) |
+| `/ prompt [question]`         | ask the `ios-bot` anything and you shall receive a GPT 3.5 answer.                                         |
+| `/ 8_ball [question]`         | ask the `ios-bot` anything too and you shall receive a GPT-8-ball-like answer                              |
+| `/ joke`                      | (USE AT YOUR OWN RISK) the `ios-bot` will give you a joke.                                                 |
 | `/ my_rating`                 | View your rating with your main position.                                                                  |
 | `/ top_na`                    | View the top-10 best players with their rating and position.                                               |
 | `/ view_rating @member`       | View the rating of a given @member                                                                         |
 | `/ ratings(GK, DEF, MID, ATK)`| View the ratings by a specified position.                                                                  |
-| `/view_league_table`          | View the league table of any league IRL.                                                                   |
-| `/view_top_scorers`           | View the top scorers of any league IRL with each team.                                                     |
-| `/view_tournaments`           | View the winners of the World Cup, CL, and UL.                                                             |
-| `/8_ball`                     | Ask the bot any question, and receive your fate...                                                         |
+| `/ view_league_table`         | View the league table of any league IRL.                                                                   |
+| `/ view_top_scorers`          | View the top scorers of any league IRL with each team.                                                     |
+| `/ view_tournaments`          | View the winners of the World Cup, CL, and UL.                                                             |
+| `/ motm [url]`                | receive the MOTM of the match given the url.                                                               |
 | `/ clear [number]` *ADMIN*    | Deletes a specified number of previous messages from chat.                                                 |
 | `/ get_id @member` *ADMIN*    | Receives the unique 18 digit ID of a user.                                                                 |
