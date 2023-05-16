@@ -37,11 +37,11 @@ async def my_rating(ctx):
 
             if dict1[userid][1] >= 90:
                 col = discord.Color.nitro_pink()
-            if 84 <= dict1[userid][1] <= 89:
+            if dict1[userid][1] in range(82,89):
                 col = discord.Color.gold()
-            if 76 <= dict1[userid][1] <= 83:
+            if dict1[userid][1] in range(74,81):
                 col = discord.Color.dark_gold()
-            if 69 <= dict1[userid][1] <= 75:
+            if dict1[userid][1] in range(69, 73):
                 col = discord.Color.light_grey()
             if dict1[userid][1] <= 68:
                 col = discord.Color.dark_red()
@@ -54,4 +54,4 @@ async def my_rating(ctx):
             embed.add_field(name="Rating", value=f'`{dict1[userid][1]}`', inline=True)
             embed.add_field(name="Change", value=tex,inline=False)
             embed.set_footer(text=f"Requested by {ctx.author.name}")
-            await ctx.respond(embed=embed)             
+            await ctx.respond(embed=embed)                  

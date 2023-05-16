@@ -1,4 +1,3 @@
-from discord.ext import commands
 from ..config import *
 
 @bot.slash_command(name = 'clear', description = "Clear a # of Messages")

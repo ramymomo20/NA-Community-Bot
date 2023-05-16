@@ -3,62 +3,57 @@ from player_ratings.bot_logic import *
 from discord import Option
 from ..config import *
 
-@bot.slash_command(name = 'ratings',description='Enter either: (GK, DEF, MID, or ATK)')
-async def ratings(ctx, position: Option(str, "Enter a Position (GK, DEF, MID, ATK)", required=True)):
+@bot.slash_command(name = 'my_rating',description="View Your Rating")
+async def my_rating(ctx):
 
-        name = list(data.Name)
+        userid = ctx.author.id
+        userid = str(userid)
+
+        name1 = list(data.Name)
         pos = list(data.Position)
         rate = list(data.Rating)
-
-        x = [[name[i],pos[i],rate[i]] for i in range(len(rate))]
-
-        attackers = [newlst for sublist in x for newlst in [sublist] if sublist[1] == "ATK"]
-        attack_names, attack_rating = [item[0] for item in attackers],[item[2] for item in attackers]
-
-        midfielders = [newlst for sublist in x for newlst in [sublist] if sublist[1] == "MID"]
-        mid_names, mid_rating = [item[0] for item in midfielders],[item[2] for item in midfielders]
-
-        defender = [newlst for sublist in x for newlst in [sublist] if sublist[1] == "DEF"]
-        def_names, def_rating = [item[0] for item in defender],[item[2] for item in defender]
-
-        goalkeeper = [newlst for sublist in x for newlst in [sublist] if sublist[1] == "GK"]
-        gk_names, gk_rating = [item[0] for item in goalkeeper],[item[2] for item in goalkeeper]
+        ids = list(data.ID)
+        improved = list(data.Improved)
+        x = [str(i) for i in ids]
 
 
-        if position == 'GK' or position == 'gk':
-            embed=discord.Embed(title="Current Goalkeeper Ratings", url="https://docs.google.com/spreadsheets/d/1ZUWs-zHYjIpJvVPSTofodg8FF29_zP28Mmk5j9ZtynU/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
-            embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
-            embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
-            embed.add_field(name="Players ", value='\n'.join(map(str, gk_names)), inline=True)
-            embed.add_field(name="Ratings ", value='\n'.join(map(str, gk_rating)), inline=True)
-            embed.set_footer(text="Requested by {}".format(ctx.author.name))    
-            await ctx.respond(embed=embed,ephemeral=True)
+        dict1 = {x[a]:(pos[a],rate[a],name1[a],improved[a]) for a in range(len(name1))}
 
-        elif position == 'DEF' or position == 'def':
-            embed=discord.Embed(title="Current Defender Ratings", url="https://docs.google.com/spreadsheets/d/1ZUWs-zHYjIpJvVPSTofodg8FF29_zP28Mmk5j9ZtynU/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
-            embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
-            embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
-            embed.add_field(name="Players ", value='\n'.join(map(str, def_names)), inline=True)
-            embed.add_field(name="Ratings ", value='\n'.join(map(str, def_rating)), inline=True)
-            embed.set_footer(text="Requested by {}".format(ctx.author.name))    
-            await ctx.respond(embed=embed,ephemeral=True)
-        
-        elif position == 'MID' or position == 'mid':
-            embed=discord.Embed(title="Current Midfielder Ratings", url="https://docs.google.com/spreadsheets/d/1ZUWs-zHYjIpJvVPSTofodg8FF29_zP28Mmk5j9ZtynU/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
-            embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
-            embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
-            embed.add_field(name="Players ", value='\n'.join(map(str, mid_names)), inline=True)
-            embed.add_field(name="Ratings ", value='\n'.join(map(str, mid_rating)), inline=True)
-            embed.set_footer(text="Requested by {}".format(ctx.author.name))    
-            await ctx.respond(embed=embed,ephemeral=True)
-
-        elif position == 'ATK' or position == 'atk':
-            embed=discord.Embed(title="Current Attacker Ratings", url="https://docs.google.com/spreadsheets/d/1ZUWs-zHYjIpJvVPSTofodg8FF29_zP28Mmk5j9ZtynU/edit?usp=sharing", description="\n **------------------------------------------** \n", color=discord.Color.random())
-            embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url)
-            embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
-            embed.add_field(name="Players ", value='\n'.join(map(str, attack_names)), inline=True)
-            embed.add_field(name="Ratings ", value='\n'.join(map(str, attack_rating)), inline=True)
-            embed.set_footer(text="Requested by {}".format(ctx.author.name))    
-            await ctx.respond(embed=embed,ephemeral=True)
+        if userid not in dict1:
+            await ctx.respond(YOUR_ACCOUNT_NOT_FOUND,ephemeral=True)
         else:
-            await ctx.respond("That position is invalid.",ephemeral=True)
+            col = discord.Color.greyple()
+
+            if dict1[userid][3] == 100:
+                tex = 'You are a new addition!'
+            else:
+                if dict1[userid][3] < 0:
+                    num = int(dict1[userid][3])
+                    tex = f"```diff\n-{num*-1} from last rating.```"
+                if dict1[userid][3] == 0:
+                    tex = "```fix\n0 from last rating.```"
+                if dict1[userid][3] > 0:
+                    num = int(dict1[userid][3])
+                    tex = f"```diff\n+{num} from last rating.```"
+
+
+            if dict1[userid][1] >= 90:
+                col = discord.Color.nitro_pink()
+            if dict1[userid][1] in range(82,89):
+                col = discord.Color.gold()
+            if dict1[userid][1] in range(74,81):
+                col = discord.Color.dark_gold()
+            if dict1[userid][1] in range(69, 73):
+                col = discord.Color.light_grey()
+            if dict1[userid][1] <= 68:
+                col = discord.Color.dark_red()
+
+            embed=discord.Embed(title="IOS NA Ratings", url=link, description="\n **------------------------** \n", color=col)
+            embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url)
+            embed.set_thumbnail(url="https://imgur.com/ylgPvo4.jpeg")
+            embed.add_field(name="Player", value=f'`{dict1[userid][2]}`', inline=True)
+            embed.add_field(name="Position", value=f'`{dict1[userid][0]}`', inline=True)
+            embed.add_field(name="Rating", value=f'`{dict1[userid][1]}`', inline=True)
+            embed.add_field(name="Change", value=tex,inline=False)
+            embed.set_footer(text=f"Requested by {ctx.author.name}")
+            await ctx.respond(embed=embed)

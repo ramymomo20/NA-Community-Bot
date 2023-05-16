@@ -15,16 +15,9 @@ DESCRIPTION = "I manage the IOSNA community and I work the ratings system."
 HOW_TO_USE = "🤔 How to use me?"
 COMMANDS = "⌨️ Available commands"
 ADD = "🤝 Copyright (c) 2023 **NA Community Bot**\n*THIS SOFTWARE IS PROVIDED WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.*" 
+ADD = "🤝 Copyright (c) 2023 **NA Community Bot**\n*THIS SOFTWARE IS PROVIDED WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.*" 
 FOOTER_TEXT = "If you require further assistance, directly message: @shaq#6096"
 FOOTER_URL = "https://imgur.com/ylgPvo4.jpeg"
-
-USE_MESSAGE = ""
-USE_MESSAGE += f"**1**. Get a feel for the bot by using the different commands. This bot uses your 18-digit unique discord id to tie your account with your rating.\n"
-USE_MESSAGE += f"**2**. If for any case the bot doesn't work for you, even if you have a rating. I'll have to update your discord id.\n"
-USE_MESSAGE += f"**3**. This bot is still a WIP, but we hope to constantly update this to include new commands and added functionality.\n"
-USE_MESSAGE += f"**4**. Let me know if there are any bugs or new features you would like to see changed/added!\n"
-USE_MESSAGE += f"**5**. Enjoy! Or not.\n"
-USE_MESSAGE += "\u200b"
 
 COMMANDS_MESSAGE = ""
 COMMANDS_MESSAGE += f"**1**. `/prompt [question]`, ask the bot anything and you shall receive a GPT 3.5 answer.\n"
@@ -40,6 +33,7 @@ COMMANDS_MESSAGE += f"**10**. `/view_top_scorers`, click on a country and you wi
 COMMANDS_MESSAGE += f"**11**. `/view_tournament`, Choose a tournament to see past winners and countries hosted.\n"
 COMMANDS_MESSAGE += f""
 COMMANDS_MESSAGE += "\u200b"
+
 
 ADD_MESSAGE = ""
 ADD_MESSAGE += ""
